@@ -1,0 +1,50 @@
+/* Conteneur principal de la section des chiffres clés */
+.key-figures-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f8f9fa; /* Un fond clair et neutre */
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  text-align: center;
+  flex-wrap: wrap; /* Permet de passer à la ligne sur les petits écrans */
+  gap: 1.5rem; /* Espace entre les éléments */
+}
+
+/* Conteneur pour chaque chiffre et son label */
+.key-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px; /* Largeur minimale pour un bon espacement */
+}
+
+/* Le chiffre lui-même (généré par CountUp) */
+.figure {
+  font-size: 3rem; /* Grande taille pour l'impact */
+  font-weight: 700; /* Gras */
+  color: #0056b3; /* Couleur principale du site, un bleu soutenu */
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Ombre légère pour la profondeur */
+}
+
+/* Le label sous le chiffre */
+.label {
+  font-size: 1rem;
+  color: #6c757d; /* Couleur secondaire, plus discrète */
+  font-weight: 600;
+}
+
+/* Styles pour les écrans plus petits */
+@media (max-width: 768px) {
+  .key-figures-section {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .figure {
+    font-size: 2.5rem;
+  }
+}

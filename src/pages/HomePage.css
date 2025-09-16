@@ -1,0 +1,376 @@
+/* --- Variables CSS pour la cohérence --- */
+:root {
+  --primary-color: #0056b3;
+  --secondary-color: #6c757d;
+  --background-light: #f8f9fa;
+  --text-dark: #212529;
+  --text-light: #ffffff;
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --card-hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+/* --- Section Héros (Hero) --- */
+.hero {
+  background: linear-gradient(135deg, rgba(0, 86, 179, 0.85), rgba(0, 46, 99, 0.95));
+  color: var(--text-light);
+  text-align: center;
+  padding: 6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  animation: fadeInDown 1s ease-out;
+}
+
+.hero-subtitle {
+  max-width: 700px;
+  margin: 1rem auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out 0.3s;
+  animation-fill-mode: backwards;
+}
+
+.hero-buttons {
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease-out 0.6s;
+  animation-fill-mode: backwards;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.cta-button.primary, .hero-buttons .cta-button:not(.secondary) {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.cta-button.primary:hover, .hero-buttons .cta-button:not(.secondary):hover {
+  background-color: #004494; /* Darker primary */
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.2);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.hero .cta-button.secondary {
+  color: var(--text-light);
+  border-color: var(--text-light);
+}
+
+.cta-button.secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  transform: translateY(-3px);
+}
+
+/* --- Section Services --- */
+.services-section {
+  padding: 4rem 1rem;
+  background-color: var(--background-light);
+  border-bottom: 1px solid #e9ecef;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--text-light);
+  padding: 2rem;
+  text-align: center;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.service-icon {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+  color: var(--secondary-color);
+}
+
+/* --- Section "Pourquoi nous choisir ?" --- */
+.why-us-section {
+  padding: 4rem 1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.advantages-list {
+  list-style: none;
+  padding: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.advantages-list li {
+  background: var(--background-light);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow var(--transition-speed) ease;
+}
+
+.advantages-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow);
+}
+
+.advantages-list .fa-check-circle {
+  color: #28a745; /* Vert succès */
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Animation pour les éléments de la liste "valeur ajoutée" */
+.animated-section.visible .advantages-list li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Délai en cascade pour chaque élément */
+.animated-section.visible .advantages-list li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.animated-section.visible .advantages-list li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.animated-section.visible .advantages-list li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.animated-section.visible .advantages-list li:nth-child(4) {
+  transition-delay: 0.4s;
+}
+/* --- Section FAQ --- */
+.faq-section {
+  padding: 4rem 1rem;
+  background-color: var(--background-light);
+  border-bottom: 1px solid #e9ecef;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Section Appel à l'action Final --- */
+.final-cta-section {
+  background: linear-gradient(135deg, rgba(0, 86, 179, 0.05), rgba(0, 46, 99, 0.08));
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.final-cta-section p {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  color: var(--secondary-color);
+}
+
+.final-cta-section .hero-buttons {
+  margin-top: 0;
+}
+
+/* --- Animations --- */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Styles pour les titres de section */
+.testimonials-section {
+  background-color: var(--background-light);
+  border-bottom: 1px solid #e9ecef;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+h2.section-title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+
+h6.section-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+
+/* Styles pour la section des partenaires */
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-top: 4rem;
+  opacity: 0.7;
+  transition: opacity var(--transition-speed) ease;
+}
+
+.partner-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+  transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.partner-item i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  transition: color var(--transition-speed) ease;
+}
+
+.partner-logos:hover {
+  opacity: 1;
+}
+
+.partner-item:hover {
+  transform: translateY(-5px);
+  color: var(--text-dark);
+}
+
+.partner-item:hover i {
+  color: #004494; /* Darker primary on hover */
+}
+
+
+/* Styles pour la section FAQ (accordéon) */
+.faq-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.faq-question i {
+  color: #4a90e2;
+  transition: transform 0.3s ease;
+}
+
+.faq-question[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.faq-answer.open {
+  max-height: 200px; /* Ajustez si le contenu est plus long */
+  transition: max-height 0.4s ease-in;
+}
+
+.faq-answer p {
+  padding: 0 25px 20px;
+  margin: 0;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  h2.section-title {
+    font-size: 1.8rem;
+  }
+}

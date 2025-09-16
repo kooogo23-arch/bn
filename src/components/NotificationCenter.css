@@ -1,0 +1,110 @@
+/* Styles pour le centre de notifications */
+.notification-center {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.notification-center h3 {
+  color: #084761;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.notification-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.notification-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.notification-btn.purchase {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.notification-btn.vendor {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.notification-btn.download {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+.notification-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.notification-message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+.notification-message.success {
+  background: #d1fae5;
+  color: #065f46;
+  border-left: 4px solid #10b981;
+}
+
+.notification-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid #ef4444;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mode sombre */
+.dark .notification-center {
+  background: #374151;
+  color: #f9fafb;
+}
+
+.dark .notification-center h3 {
+  color: #fbbf24;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .notification-actions {
+    flex-direction: column;
+  }
+  
+  .notification-btn {
+    justify-content: center;
+  }
+}
